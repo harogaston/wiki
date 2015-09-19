@@ -307,6 +307,10 @@ Error message and password prompt
 
 <li>$:/view</li>
 
+<li>chmod</li>
+
+<li>chown</li>
+
 <li>fing</li>
 
 <li>git</li>
@@ -334,6 +338,8 @@ Error message and password prompt
 <li>USB Label</li>
 
 <li>USB Restore</li>
+
+<li>vim</li>
 
 <li>VNC Access</li>
 
@@ -6252,7 +6258,7 @@ very-muted-foreground: #888888</pre>
 <div modified="20150909164349823" title="$:/state/tag-manager/fing">
 <pre>closed</pre>
 </div>
-<div list="Welcome!" title="$:/StoryList">
+<div list="vim Welcome! [[Text Formatting]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -6269,7 +6275,7 @@ very-muted-foreground: #888888</pre>
     }
 }</pre>
 </div>
-<div created="20150811213849031" modified="20150909000544325" title="$:/temp/NewTagName">
+<div created="20150811213849031" modified="20150919014751496" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
 <div author="Paco Rivière" core-version="&gt;=5.0.0" created="20150909170024243" dependents="" description="Catalan (Spain)" icon="data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22810%22%20height%3D%22540%22%3E%0A%3Crect%20width%3D%22810%22%20height%3D%22540%22%20fill%3D%22%23FCDD09%22%2F%3E%0A%3Cpath%20stroke%3D%22%23DA121A%22%20stroke-width%3D%2260%22%20d%3D%22M0%2C90H810m0%2C120H0m0%2C120H810m0%2C120H0%22%2F%3E%0A%3C%2Fsvg%3E" modified="20150909170024243" name="ca-ES" original-plugin-type="language" original-tags="" original-title="$:/languages/ca-ES" original-type="application/json" server-url="http://tiddlywiki.com/library/v5.1.9/index.html" tags="$:/tags/RemoteAssetInfo" title="$:/temp/RemoteAssetInfo/http://tiddlywiki.com/library/v5.1.9/index.html/$:/languages/ca-ES" type="text/vnd.tiddlywiki" version="5.1.9">
@@ -6646,6 +6652,26 @@ At this point it is largely for experimentation by @zooko.
 <div modified="20150814163940804" title="$:/view">
 <pre>classic</pre>
 </div>
+<div created="20150919015408357" modified="20150919015757294" tags="linux" title="chmod">
+<pre>`ls -l file_name` outputs ownership details
+
+''r''ead 2
+''w''rite 4
+e''x''ecute 1
+
+Se deben sumar los permisos que queremos otorgar:
+
+`chmod OWNER|GROUP|OTHERS file_name`
+
+Ejemplo:
+
+* `chmod 774 my_text_file.txt`</pre>
+</div>
+<div created="20150919014731875" modified="20150919015419298" tags="linux" title="chown">
+<pre>`ls -l file_name` outputs ownership details
+
+`chown [-R] &lt;user&gt;:&lt;group&gt; file_name` -R option sets recursive mode</pre>
+</div>
 <div color="#3788ff" created="20150909164401239" modified="20150909164412263" title="fing">
 <pre></pre>
 </div>
@@ -6851,6 +6877,9 @@ That's it, you should now have a restored USB key with a single fat 32 partition
 
 (*)To change the USB Label visit [[this link.|USB Label]]</pre>
 </div>
+<div created="20150919020510737" modified="20150919020659164" tags="linux" title="vim">
+<pre>[[Quick Reference Guide|file:///home/gaston/repo/wiki/resources/vimqr-es.pdf]]</pre>
+</div>
 <div created="20150824164553139" modified="20150824171041430" tags="linux remote openSUSE" title="VNC Access">
 <pre>#In openSUSE enable Remote Administration (~YaST)
 #Edit ~/.vnc/xstartup, replacing the line starting `twm` with `dbus-launch /usr/bin/startkde`
@@ -6862,11 +6891,11 @@ To start a remote connection to your machine, type in a command line `vncviewer 
 
 *`vncserver -kill :&lt;X_display_number&gt;` kills the session</pre>
 </div>
-<div created="20150811225802381" modified="20150910043801972" tags="tiddly" title="Welcome!" type="text/vnd.tiddlywiki">
+<div created="20150811225802381" modified="20150910051250356" tags="tiddly" title="Welcome!" type="text/vnd.tiddlywiki">
 <pre>---
 Useful links:
 
-* [[Help|file:///home/gaston/Documents/wiki/help.html]]
+* [[Help|file:///home/gaston/repo/wiki/help.html]]
 * [[Text Formatting]]</pre>
 </div>
 
