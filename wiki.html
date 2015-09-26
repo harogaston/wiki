@@ -121,6 +121,10 @@ Error message and password prompt
 
 <li>$:/config/Navigation/UpdateAddressBar</li>
 
+<li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/close-all</li>
+
+<li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/control-panel</li>
+
 <li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/full-screen</li>
 
 <li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home</li>
@@ -180,6 +184,8 @@ Error message and password prompt
 <li>$:/state/tabs/controlpanel/toolbars-1345989671</li>
 
 <li>$:/state/tag-manager/fing</li>
+
+<li>$:/state/tag-manager/remote</li>
 
 <li>$:/StoryList</li>
 
@@ -335,6 +341,8 @@ Error message and password prompt
 
 <li>tiddly</li>
 
+<li>usb</li>
+
 <li>USB Label</li>
 
 <li>USB Restore</li>
@@ -360,6 +368,12 @@ Error message and password prompt
 </div>
 <div modified="20150909170423074" title="$:/config/Navigation/UpdateAddressBar">
 <pre>no</pre>
+</div>
+<div modified="20150926044843266" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/close-all">
+<pre>show</pre>
+</div>
+<div modified="20150926044833291" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/control-panel">
+<pre>hide</pre>
 </div>
 <div modified="20150811215211874" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/full-screen">
 <pre>hide</pre>
@@ -6237,28 +6251,31 @@ very-muted-foreground: #888888</pre>
 <div modified="20150910043739947" title="$:/state/tab--1498284803">
 <pre>$:/core/ui/AdvancedSearch/System</pre>
 </div>
-<div modified="20150909165234520" title="$:/state/tab--1963855381">
-<pre>$:/themes/tiddlywiki/vanilla/themetweaks</pre>
+<div modified="20150926050902382" title="$:/state/tab--1963855381">
+<pre>$:/core/ui/ControlPanel/Toolbars</pre>
 </div>
 <div modified="20150909164926919" title="$:/state/tab--86143343">
 <pre>$:/core/ui/ControlPanel/Plugins/Installed/Plugins</pre>
 </div>
-<div modified="20150910043514173" title="$:/state/tab-1749438307">
-<pre>$:/core/ui/ControlPanel/Info</pre>
+<div modified="20150926044822316" title="$:/state/tab-1749438307">
+<pre>$:/core/ui/ControlPanel/Appearance</pre>
 </div>
-<div modified="20150909170344088" title="$:/state/tab/moresidebar-401116514">
-<pre>$:/core/ui/MoreSideBar/Tags</pre>
+<div modified="20150926050148121" title="$:/state/tab/moresidebar-401116514">
+<pre>$:/core/ui/MoreSideBar/Orphans</pre>
 </div>
 <div modified="20150909170159322" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/More</pre>
 </div>
-<div modified="20150909165159094" title="$:/state/tabs/controlpanel/toolbars-1345989671">
-<pre>$:/core/ui/ControlPanel/Toolbars/ViewToolbar</pre>
+<div modified="20150926044831013" title="$:/state/tabs/controlpanel/toolbars-1345989671">
+<pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
 <div modified="20150909164349823" title="$:/state/tag-manager/fing">
 <pre>closed</pre>
 </div>
-<div list="vim Welcome! [[Text Formatting]]" title="$:/StoryList">
+<div modified="20150926045556993" title="$:/state/tag-manager/remote">
+<pre>closed</pre>
+</div>
+<div list="$:/ControlPanel" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -6511,8 +6528,8 @@ At this point it is largely for experimentation by @zooko.
 <div created="20150909170024174" modified="20150909170024174" tags="$:/tags/ServerConnection" title="$:/temp/ServerConnection/http://tiddlywiki.com/library/v5.1.9/index.html" url="http://tiddlywiki.com/library/v5.1.9/index.html">
 <pre>loaded</pre>
 </div>
-<div modified="20150811225632212" title="$:/theme">
-<pre>$:/themes/tiddlywiki/vanilla</pre>
+<div modified="20150926050858165" title="$:/theme">
+<pre>$:/themes/tiddlywiki/snowwhite</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.9">
 <pre>{
@@ -6652,30 +6669,58 @@ At this point it is largely for experimentation by @zooko.
 <div modified="20150814163940804" title="$:/view">
 <pre>classic</pre>
 </div>
-<div created="20150919015408357" modified="20150919015757294" tags="linux" title="chmod">
-<pre>`ls -l file_name` outputs ownership details
+<div created="20150919015408357" modified="20150926044703568" tags="linux" title="chmod">
+<pre>!Change file access permissions
 
-''r''ead 2
-''w''rite 4
-e''x''ecute 1
+Query ownership details:
 
-Se deben sumar los permisos que queremos otorgar:
+*`ls -[a]l &lt;directory/file&gt;`
+
+Command:
+
+`chmod [ugoa] [+-=] [rwxXst] fileORdirectoryName`
+
+| ''+'' | ''-'' |  ''='' |
+| add | remove | set |
+
+| ''u''ser | ''g''roup |  ''o''thers | &quot;a&quot;ll |
+| u | g | o | a |
+
+| ''r'' | ''w'' |  ''x'' | ''X'' | ''s'' |  ''t'' |
+| read | write | execute |  execute if directory | set userID on execution | restricted deletion |
+
+Numeric mode (variant):
 
 `chmod OWNER|GROUP|OTHERS file_name`
 
-Ejemplo:
+Add up the permissions you wish to grant
+
+| ''r''ead | ''w''rite |  e''x''ecute |
+| 4 | 2 | 1 |
+
+Example:
 
 * `chmod 774 my_text_file.txt`</pre>
 </div>
-<div created="20150919014731875" modified="20150919015419298" tags="linux" title="chown">
-<pre>`ls -l file_name` outputs ownership details
+<div created="20150919014731875" modified="20150926044711033" tags="linux" title="chown">
+<pre>!Change files ownership
 
-`chown [-R] &lt;user&gt;:&lt;group&gt; file_name` -R option sets recursive mode</pre>
+Query ownership details:
+
+*`ls -l file_name`
+
+Command:
+
+`chown [options] &lt;user&gt;:&lt;group&gt; file_name`
+
+Options: 
+
+`-R` -- recursive</pre>
 </div>
 <div color="#3788ff" created="20150909164401239" modified="20150909164412263" title="fing">
 <pre></pre>
 </div>
-<div color="#7f7f7f" created="20150909164422968" modified="20150909170315023" tags="git" title="git">
+<div color="#7f7f7f" created="20150909164422968" modified="20150926045045147" title="git">
 <pre>*[[Git - push]]
 *[[Git - branches]]
 *[[Git - remotes]]
@@ -6747,13 +6792,17 @@ Para revertir commits REMOTOS:
 
 `git revert &lt;commit&gt;`</pre>
 </div>
-<div color="#fffe62" created="20150909164602293" modified="20150909164607261" title="linux">
-<pre></pre>
+<div color="#fffe62" created="20150909164602293" modified="20150926045708716" title="linux">
+<pre>*[[chmod]]
+*[[chown]]
+*[[usb]]
+*[[vim]]
+*[[SSH Access]]</pre>
 </div>
-<div color="#31c544" created="20150909164437944" modified="20150909164442924" title="openSUSE">
-<pre></pre>
+<div color="#31c544" created="20150909164437944" modified="20150926045816271" title="openSUSE">
+<pre>*[[VNC Access]]</pre>
 </div>
-<div created="20150909000528480" modified="20150909003820943" tags="linux fing" title="SSH Access">
+<div created="20150909000528480" modified="20150922041418666" tags="linux fing" title="SSH Access">
 <pre>!!Genrating an SSH key pair
 
 `ssh-keygen -t rsa -b 2048`
@@ -6773,27 +6822,34 @@ A modo de ejemplo, si fuera a ingresar remotamente desde su casa, tendrá que ej
 
 #`ssh gaston.haro@lulu.fing.edu.uy`
 
-#`ssh gaston.haro@pcunix##`</pre>
+#`ssh gaston.haro@pcunix##`
+
+Para montarlo como directorio remoto utilizanto sshfs:
+
+`sshfs gaston.haro@lulu.fing.edu.uy: /some/local/dir/`</pre>
 </div>
-<div created="20150904015924808" modified="20150904022306936" tags="tiddly" title="Text Formatting">
-<pre>*''Bold'' `''bold''`
-*//Italics// `//text//`
-*~~Strikethrough~~ `~~text~~`
-* __underline__ `__text__`
-*`Code` `` ` text ` ``
-*[[Link to Tiddly]] `[[text]]`
-* [[External link|http://tiddlywiki.com/]] `[[text|link]]`
-* List `*text`
-# Numbered List `#text`
-* Horizontal break `---`
-* Headings `!text`
-*&gt;Simple Quote `&gt;text`
-&lt;&lt;&lt;
-Quote Block `&lt;&lt;&lt;text&lt;&lt;&lt;text`
-&lt;&lt;&lt; Cite</pre>
+<div created="20150904015924808" modified="20150919035452562" tags="tiddly" title="Text Formatting">
+<pre>|''Bold'' | `''bold''` |
+|//Italics// | `//text//` |
+|~~Strikethrough~~ | `~~text~~` |
+|__underline__ | `__text__` |
+|`Code` | `` ` text ` `` |
+|[[Link to Tiddly]] | `[[CamelCase]]` |
+|[[External link|http://tiddlywiki.com/]] | `[[text|link]]` |
+|List | `*text` |
+|Numbered List | `#text` |
+|Horizontal break | `---` |
+|Headings | `!text` |
+|Simple Quote | `&gt;text` |
+|Quote Block | `&lt;&lt;&lt;cite&lt;&lt;&lt;author` |
+|[[Tablas|file:///home/gaston/repo/wiki/help.html#Tables%20in%20WikiText]]|c</pre>
 </div>
-<div color="#ffffff" created="20150909164452289" modified="20150909164554510" title="tiddly">
-<pre></pre>
+<div color="#ffffff" created="20150909164452289" modified="20150926050138825" title="tiddly">
+<pre>*[[Text Formatting]]</pre>
+</div>
+<div created="20150926045001218" modified="20150926045309489" title="usb">
+<pre>*[[USB Label]]
+*[[USB Restore]]</pre>
 </div>
 <div created="20150811220247091" modified="20150908231744446" tags="usb linux" title="USB Label" type="text/vnd.tiddlywiki">
 <pre>!Introduction
@@ -6880,7 +6936,7 @@ That's it, you should now have a restored USB key with a single fat 32 partition
 <div created="20150919020510737" modified="20150919020659164" tags="linux" title="vim">
 <pre>[[Quick Reference Guide|file:///home/gaston/repo/wiki/resources/vimqr-es.pdf]]</pre>
 </div>
-<div created="20150824164553139" modified="20150824171041430" tags="linux remote openSUSE" title="VNC Access">
+<div created="20150824164553139" modified="20150926045658195" tags="openSUSE" title="VNC Access">
 <pre>#In openSUSE enable Remote Administration (~YaST)
 #Edit ~/.vnc/xstartup, replacing the line starting `twm` with `dbus-launch /usr/bin/startkde`
 #Run `vncserver`. It will ask you to set up a Read-Write and a Read-only password.
@@ -6891,12 +6947,18 @@ To start a remote connection to your machine, type in a command line `vncviewer 
 
 *`vncserver -kill :&lt;X_display_number&gt;` kills the session</pre>
 </div>
-<div created="20150811225802381" modified="20150910051250356" tags="tiddly" title="Welcome!" type="text/vnd.tiddlywiki">
-<pre>---
-Useful links:
+<div created="20150811225802381" modified="20150926050758827" tags="tiddly" title="Welcome!" type="text/vnd.tiddlywiki">
+<pre>Categories:
 
-* [[Help|file:///home/gaston/repo/wiki/help.html]]
-* [[Text Formatting]]</pre>
+*[[fing]]
+*[[git]]
+*[[linux]]
+*[[openSUSE]]
+*[[tiddly]]
+
+&lt;div style=&quot;font-size:0.7em;margin-top:3em;margin-bottom:3em;&quot;&gt;
+&lt;a href=&quot;file:///home/gaston/repo/wiki/help.html&quot; class=&quot;tc-btn-big-green&quot; style=&quot;background-color:#199;&quot; target=&quot;_blank&quot;&gt;{{$:/core/images/help}} ~TiddlyWiki Help&lt;/a&gt;
+&lt;/div&gt;</pre>
 </div>
 
 </div>
