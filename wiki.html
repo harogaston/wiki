@@ -189,6 +189,8 @@ Error message and password prompt
 
 <li>$:/state/tag-manager/fing</li>
 
+<li>$:/state/tag-manager/linux</li>
+
 <li>$:/state/tag-manager/remote</li>
 
 <li>$:/StoryList</li>
@@ -338,6 +340,8 @@ Error message and password prompt
 <li>Git - reset</li>
 
 <li>Git - revert</li>
+
+<li>Git - unstage</li>
 
 <li>Index</li>
 
@@ -6274,10 +6278,10 @@ very-muted-foreground: #888888</pre>
 <div modified="20150926081400475" title="$:/state/tab-1749438307">
 <pre>$:/core/ui/ControlPanel/Settings</pre>
 </div>
-<div modified="20150926082751620" title="$:/state/tab/moresidebar-401116514">
-<pre>$:/core/ui/MoreSideBar/System</pre>
+<div modified="20151010063834144" title="$:/state/tab/moresidebar-401116514">
+<pre>$:/core/ui/MoreSideBar/Tags</pre>
 </div>
-<div modified="20150926081231439" title="$:/state/tab/sidebar--1835078512">
+<div modified="20151010063832721" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/More</pre>
 </div>
 <div modified="20150926074809313" title="$:/state/tabs/controlpanel/toolbars-1345989671">
@@ -6286,10 +6290,13 @@ very-muted-foreground: #888888</pre>
 <div modified="20150909164349823" title="$:/state/tag-manager/fing">
 <pre>closed</pre>
 </div>
+<div modified="20151008084833042" title="$:/state/tag-manager/linux">
+<pre>closed</pre>
+</div>
 <div modified="20150926045556993" title="$:/state/tag-manager/remote">
 <pre>closed</pre>
 </div>
-<div list="Index" title="$:/StoryList">
+<div list="[[Git - unstage]] Index git" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150926081530159" modified="20150926081530159" title="$:/temp/advancedsearch">
@@ -6542,7 +6549,7 @@ At this point it is largely for experimentation by @zooko.
 <div author="JeremyRuston" core-version="&gt;=5.0.0" created="20150909170024243" dependents="" description="Basic theme" modified="20150909170024243" name="Vanilla" original-plugin-type="theme" original-tags="" original-title="$:/themes/tiddlywiki/vanilla" original-type="application/json" server-url="http://tiddlywiki.com/library/v5.1.9/index.html" tags="$:/tags/RemoteAssetInfo" title="$:/temp/RemoteAssetInfo/http://tiddlywiki.com/library/v5.1.9/index.html/$:/themes/tiddlywiki/vanilla" type="text/vnd.tiddlywiki" version="5.1.9">
 <pre></pre>
 </div>
-<div created="20150926081211248" modified="20150926081222312" title="$:/temp/search">
+<div created="20150926081211248" modified="20151008084057021" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20150909170024174" modified="20150909170024174" tags="$:/tags/ServerConnection" title="$:/temp/ServerConnection/http://tiddlywiki.com/library/v5.1.9/index.html" url="http://tiddlywiki.com/library/v5.1.9/index.html">
@@ -6740,12 +6747,13 @@ Options:
 <div color="#3788ff" created="20150909164401239" modified="20150909164412263" title="fing">
 <pre></pre>
 </div>
-<div color="#7f7f7f" created="20150909164422968" modified="20150926045045147" title="git">
+<div color="#7f7f7f" created="20150909164422968" modified="20151010065417646" title="git">
 <pre>*[[Git - push]]
 *[[Git - branches]]
 *[[Git - remotes]]
 *[[Git - reset]]
-*[[Git - revert]]</pre>
+*[[Git - revert]]
+*[[Git - unstage]]</pre>
 </div>
 <div created="20150904014109943" modified="20150907171023776" tags="git" title="Git - branches">
 <pre>To delete a ''remote'' branch:
@@ -6812,7 +6820,16 @@ Para revertir commits REMOTOS:
 
 `git revert &lt;commit&gt;`</pre>
 </div>
-<div created="20150811225802381" modified="20150926051101722" tags="tiddly" title="Index" type="text/vnd.tiddlywiki">
+<div created="20151008083705805" modified="20151010065402614" tags="git" title="Git - unstage">
+<pre>You may want to ''keep'' a file in your working tree but ''remove'' it from your staging area. 
+
+In other words, you may want to keep a file on your hard drive but not have Git track it anymore (this is particularly useful if you forgot to add something to your .gitignore file and accidentally staged it).
+
+`git rm [options] --cached file/dir`
+
+* `-r` recursive</pre>
+</div>
+<div created="20150811225802381" modified="20151008085139475" tags="tiddly" title="Index" type="text/vnd.tiddlywiki">
 <pre>Categories:
 
 *[[fing]]
@@ -6821,11 +6838,14 @@ Para revertir commits REMOTOS:
 *[[openSUSE]]
 *[[tiddly]]
 
-&lt;div style=&quot;font-size:0.7em;margin-top:3em;margin-bottom:3em;&quot;&gt;
+&lt;span style=&quot;font-size:0.7em;margin-top:3em;margin-bottom:3em;&quot;&gt;
 &lt;a href=&quot;file:///home/gaston/repo/wiki/help.html&quot; class=&quot;tc-btn-big-green&quot; style=&quot;background-color:#199;&quot; target=&quot;_blank&quot;&gt;{{$:/core/images/help}} ~TiddlyWiki Help&lt;/a&gt;
-&lt;/div&gt;</pre>
+&lt;/span&gt;
+&lt;span style=&quot;font-size:0.7em;margin-top:3em;margin-bottom:3em;&quot;&gt;
+&lt;a href=&quot;file:///home/gaston/repo/wiki/wiki.html#%24%3A%2FTagManager&quot; class=&quot;tc-btn-big-green&quot; style=&quot;background-color:#FFC262;&quot;&gt;{{$:/core/images/tag-button}} ~TagManager&lt;/a&gt;
+&lt;/span&gt;</pre>
 </div>
-<div color="#fffe62" created="20150909164602293" modified="20150926045708716" title="linux">
+<div color="#fffe62" created="20150909164602293" modified="20151008084918638" title="linux">
 <pre>*[[chmod]]
 *[[chown]]
 *[[usb]]
