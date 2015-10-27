@@ -349,6 +349,10 @@ Error message and password prompt
 
 <li>openSUSE</li>
 
+<li>openSUSE - services</li>
+
+<li>PostgreSQL</li>
+
 <li>SSH Access</li>
 
 <li>Text Formatting</li>
@@ -6278,8 +6282,8 @@ very-muted-foreground: #888888</pre>
 <div modified="20150926081400475" title="$:/state/tab-1749438307">
 <pre>$:/core/ui/ControlPanel/Settings</pre>
 </div>
-<div modified="20151010063834144" title="$:/state/tab/moresidebar-401116514">
-<pre>$:/core/ui/MoreSideBar/Tags</pre>
+<div modified="20151013010148275" title="$:/state/tab/moresidebar-401116514">
+<pre>$:/core/ui/MoreSideBar/All</pre>
 </div>
 <div modified="20151010063832721" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/More</pre>
@@ -6296,7 +6300,7 @@ very-muted-foreground: #888888</pre>
 <div modified="20150926045556993" title="$:/state/tag-manager/remote">
 <pre>closed</pre>
 </div>
-<div list="[[Git - unstage]] Index git" title="$:/StoryList">
+<div list="PostgreSQL Index" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150926081530159" modified="20150926081530159" title="$:/temp/advancedsearch">
@@ -6852,8 +6856,56 @@ In other words, you may want to keep a file on your hard drive but not have Git 
 *[[vim]]
 *[[SSH Access]]</pre>
 </div>
-<div color="#31c544" created="20150909164437944" modified="20150926045816271" title="openSUSE">
-<pre>*[[VNC Access]]</pre>
+<div color="#31c544" created="20150909164437944" modified="20151012043241966" title="openSUSE">
+<pre>*[[VNC Access]]
+*[[openSUSE - services]]</pre>
+</div>
+<div created="20151012043047900" modified="20151012043213540" tags="openSUSE" title="openSUSE - services">
+<pre>Start a service:
+
+* `systemctl start apache2.service`
+
+Stop a service:
+
+* `systemctl status apache2.service`
+
+Similarly, you can enable or disable the service with:
+
+* `systemctl enable apache2.service`
+* `systemctl disable apache2.service`
+
+</pre>
+</div>
+<div created="20151012230105337" modified="20151013012625122" tags="linux openSUSE" title="PostgreSQL">
+<pre>Define a new PostgreSQL user account:
+
+*`createuser -u &lt;username&gt;`
+options 
+
+#-s superuser
+# -d Allowed to create new dbs
+
+Log as the newly created user:
+
+*`sudo su - &lt;username&gt;`
+
+To create the db system:
+
+*`initdb -D /usr/local/pgsql/data`
+
+Create a db from a sql file:
+
+*`createdb ....`
+
+*`psql -f &lt;file.sql&gt; -q &lt;db_name&gt; &lt;user&gt;`
+
+Starting the database server:
+
+*`systemctl start|stop|status postgresql.service`
+
+OR
+
+*`&lt;username&gt; -D /usr/local/pgsql/data`</pre>
 </div>
 <div created="20150909000528480" modified="20150922041418666" tags="linux fing" title="SSH Access">
 <pre>!!Genrating an SSH key pair
