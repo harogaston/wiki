@@ -6300,7 +6300,7 @@ very-muted-foreground: #888888</pre>
 <div modified="20150926045556993" title="$:/state/tag-manager/remote">
 <pre>closed</pre>
 </div>
-<div list="PostgreSQL Index" title="$:/StoryList">
+<div list="PostgreSQL Index openSUSE" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150926081530159" modified="20150926081530159" title="$:/temp/advancedsearch">
@@ -6876,7 +6876,7 @@ Similarly, you can enable or disable the service with:
 
 </pre>
 </div>
-<div created="20151012230105337" modified="20151013012625122" tags="linux openSUSE" title="PostgreSQL">
+<div created="20151012230105337" modified="20151101230115942" tags="linux openSUSE" title="PostgreSQL">
 <pre>Define a new PostgreSQL user account:
 
 *`createuser -u &lt;username&gt;`
@@ -6895,7 +6895,7 @@ To create the db system:
 
 Create a db from a sql file:
 
-*`createdb ....`
+*`createdb &lt;db_name&gt;`
 
 *`psql -f &lt;file.sql&gt; -q &lt;db_name&gt; &lt;user&gt;`
 
@@ -7009,34 +7009,41 @@ sudo umount &lt;device&gt;
 !!!Change the label
 `sudo e2label &lt;device&gt; &lt;label&gt;`</pre>
 </div>
-<div created="20150811213822604" modified="20150908231011073" tags="usb linux" title="USB Restore" type="text/vnd.tiddlywiki">
+<div created="20150811213822604" modified="20151027220021202" tags="usb linux" title="USB Restore" type="text/vnd.tiddlywiki">
 <pre>!Restoring your USB key to it's original state using Linux:
 
-#First we need to delete the old partitions that remain on the USB key.
-    ##Open a terminal and type `sudo su`
-    ##Type `fdisk -l` and note your USB drive letter.
-    ##Type `fdisk /dev/sdx` (replacing x with your drive letter)
-    ##Type `d` to proceed to delete a partition
-    ##Type `1` to select the 1st partition and press enter
-    ##Type `d` to proceed to delete another partition (fdisk should automatically select the second partition)
-:
-#Next we need to create the new partition.
-    ##Type `n` to make a new partition
-    ##Type `p` to make this partition primary and press enter
-    ##Type `1` to make this the first partition and then press enter
-    ##Press enter to accept the default first cylinder
-    ##Press enter again to accept the default last cylinder
-    ##Type `w` to write the new partition information to the USB key
-    ##Type `umount /dev/sdx1` (replacing x with your drive letter)
-:
-#The last step is to create the fat filesystem.
+!!!First we need to delete the old partitions that remain on the USB key.
 
-    ##Type `mkfs.vfat -F 32 /dev/sdx1` (replacing x with your USB key drive letter)
+    #Open a terminal and type `sudo su`
+    #Type `fdisk -l` and note your USB drive letter.
+    #Type `fdisk /dev/sdx` (replacing x with your drive letter)
+    #Type `d` to proceed to delete a partition
+    #Type `1` to select the 1st partition and press enter
+    #Type `d` to proceed to delete another partition (fdisk should automatically select the second partition)
+
+!!!Next we need to create the new partition.
+
+    #Type `n` to make a new partition
+    #Type `p` to make this partition primary and press enter
+    #Type `1` to make this the first partition and then press enter
+    #Press enter to accept the default first cylinder
+    #Press enter again to accept the default last cylinder
+    #Type `w` to write the new partition information to the USB key
+    #Type `umount /dev/sdx1` (replacing x with your drive letter)
+
+!!!The last step is to create the filesystem.
+
+    #Type `mkfs [-t fstype] [fs-options] /dev/sdx1` (replacing x with your USB key drive letter).
+*`fstype` can be any from: `ext2`, `ext3`, `ext4`, `ntfs`, `xfs`, `bfs`, `fat`, `msdos`, `btrfs` (and others).
+*`fs-options` do `man fstype` for details.
 
 That's it, you should now have a restored USB key with a single fat 32 partition that can be read from any computer.
 
+---
 
-(*)To change the USB Label visit [[this link.|USB Label]]</pre>
+See also:
+
+*How to change a USB Label visit [[this link.|USB Label]]</pre>
 </div>
 <div created="20150919020510737" modified="20150926082743429" tags="linux" title="vim">
 <pre>[[Quick Reference Guide|file:///home/gaston/repo/wiki/resources/vimqr-es.pdf]]</pre>
